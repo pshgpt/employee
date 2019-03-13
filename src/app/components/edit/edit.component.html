@@ -1,0 +1,97 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">
+          Employee Management System
+      </a>
+    
+      <button class="navbar-toggler" type="button"
+              (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+    
+      <div class="collapse navbar-collapse"
+           [ngClass]="{ 'show': navbarOpen }">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link"  routerLink="/create">Create Details</a>
+          </li>
+    
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/index">All Details</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/name">Search By Employee Name</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li><a routerLink="/login" class="">Logout</a>
+          </li>
+         
+      </ul>
+      </div>
+  </nav>
+  
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Employee Name</label>
+        <input type="text" class="form-control" name="employee_name" formControlName="employee_name" #employee_name [(ngModel)] = "ademployee.employee_name"/>
+      </div>
+      <div *ngIf="angForm.controls['employee_name'].invalid && (angForm.controls['employee_name'].dirty || angForm.controls['employee_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['employee_name'].errors.required">
+          Employee Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Employee ID</label>
+        <input type="number" class="form-control" name="employee_id" formControlName="employee_id" #employee_id [(ngModel)] = "ademployee.employee_id"/>
+      </div>
+      <div *ngIf="angForm.controls['employee_id'].invalid && (angForm.controls['employee_id'].dirty || angForm.controls['employee_id'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['employee_id'].errors.required">
+          Employee ID is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Manager ID</label>
+        <input type="number" class="form-control" name="manager_id" formControlName="manager_id" #manager_id [(ngModel)] = "ademployee.manager_id"/>
+      </div>
+      <div *ngIf="angForm.controls['manager_id'].invalid && (angForm.controls['manager_id'].dirty || angForm.controls['manager_id'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['manager_id'].errors.required">
+          Manager ID is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Employee DOB</label>
+        <input type="date" class="form-control" name="employee_dob" formControlName="employee_dob" #employee_dob [(ngModel)] = "ademployee.employee_dob"/>
+      </div>
+      <div *ngIf="angForm.controls['employee_dob'].invalid && (angForm.controls['employee_dob'].dirty || angForm.controls['employee_dob'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['employee_dob'].errors.required">
+          Employee DOB is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Employee Experience</label>
+        <input type="number" class="form-control" name="employee_experience" formControlName="employee_experience" #employee_experience [(ngModel)] = "ademployee.employee_experience"/>
+      </div>
+      <div *ngIf="angForm.controls['employee_experience'].invalid && (angForm.controls['employee_experience'].dirty || angForm.controls['employee_experience'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['employee_experience'].errors.required">
+          Employee Experience is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Employee Skillset</label>
+        <input type="text" class="form-control" name="employee_skillset" formControlName="employee_skillset" #employee_skillset [(ngModel)] = "ademployee.employee_skillset"/>
+      </div>
+      <div *ngIf="angForm.controls['employee_skillset'].invalid && (angForm.controls['employee_skillset'].dirty || angForm.controls['employee_skillset'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['employee_skillset'].errors.required">
+          Employee Skilset is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updateAdEmployee(employee_name.value, employee_id.value, manager_id.value, employee_dob.value, employee_experience.value, employee_skillset.value)" [disabled]="angForm.invalid" class="btn btn-primary">Update Employee</button>
+      </div>
+    </form>
+  </div>
+</div>

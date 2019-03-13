@@ -1,0 +1,83 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+          Employee Management System
+      </a>
+    
+      <button class="navbar-toggler" type="button"
+              (click)="toggleNavbar()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+    
+      <div class="collapse navbar-collapse"
+           [ngClass]="{ 'show': navbarOpen }">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link"  routerLink="/add">Add</a>
+          </li>
+    
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager">Search By Manager Id</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/name">Search By Employee Name</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav navbar-right">
+          <li><a routerLink="/login" class="">Logout</a>
+          </li>
+         
+      </ul>
+      </div>
+  </nav>
+</div>
+<div>
+<form [formGroup]="managerSearchForm" class="form" (ngSubmit)="search()">
+  <div align="left">
+    <label>Enter Manager Id</label>
+    <input type="text" class="form-control" formControlName="manager_id" #manager_id/>
+    <div *ngIf="managerSearchForm.get('manager_id').invalid && managerSearchForm.get('manager_id').dirty">
+      <strong class="text-danger">Enter the Manager Id</strong>
+    </div>
+</div>
+<br>
+  <!-- <div>
+      <button [disabled]="!managerSearchForm.valid || managerSearchForm.pristine" class="btn btn-primary" > 
+  Search
+      </button>
+      
+    </div> -->
+    <div>
+      <a [routerLink]="['/Resultmanager', manager_id.value]" class="btn btn-primary">Search</a>
+    </div>
+</form>
+</div>
+<!-- <div class="bordering-side text-justify" *ngIf="display">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Employee Name</td>
+        <td>Employee ID</td>
+        <td>Manager ID</td>
+        <td>Employee DOB</td>
+        <td>Employee Experience</td>
+        <td>Employee Skillset</td>
+        <td colspan="2">Actions</td>
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr *ngFor="let ademployee of ademployees">
+            <td>{{ ademployee.employee_name }}</td>
+            <td>{{ ademployee.employee_id }}</td>
+            <td>{{ ademployee.manager_id }}</td>
+            <td>{{ ademployee.employee_dob }}</td>
+            <td>{{ ademployee.employee_experience }}</td>
+            <td>{{ ademployee.employee_skillset }}</td>
+            <td><a [routerLink]="['/edit', ademployee._id]" class="btn btn-primary">Edit</a></td>
+            <td><button (click)="deleteAdEmployee(ademployee._id)"  class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody> 
+  </table>
+</div> -->
