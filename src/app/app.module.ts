@@ -14,6 +14,7 @@ import { AdemployeeService } from './ademployee.service';
 import { LoginComponent } from './login/login.component';
 import { SearchByManagerComponent } from './search-by-manager/search-by-manager.component';
 import { ResultByManagerComponent } from './result-by-manager/result-by-manager.component';
+import { SearchByNameComponent } from './search-by-name/search-by-name.component';
 
 const routes: Routes = [
   {
@@ -37,9 +38,14 @@ const routes: Routes = [
     component: SearchByManagerComponent
   },
   {
-    path: 'Resultmanager/:id',
+    path: 'Resultmanager/:manager_id',
     component: ResultByManagerComponent
+  },
+  {
+    path: 'name',
+    component: SearchByNameComponent
   }
+
 ];
 
 @NgModule({
@@ -51,6 +57,7 @@ const routes: Routes = [
     LoginComponent,
     SearchByManagerComponent,
     ResultByManagerComponent,
+    SearchByNameComponent,
   ],
   imports: [
     BrowserModule,

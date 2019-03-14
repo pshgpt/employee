@@ -19,9 +19,8 @@ export class ResultByManagerComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.ademployeeservice.searchMEmployee(params['id']).subscribe(res => {
-        this.ademployee = res;
-        console.log(this.ademployee);
+      this.ademployeeservice.searchMEmployee(params['manager_id']).subscribe((res: AdEmployee[])  => {
+        this.ademployees = res;
     });
   })
   }

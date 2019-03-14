@@ -38,19 +38,10 @@ adEmployeeRoutes.route('/edit/:id').get(function (req, res) {
       res.json(adEmployee);
   });
 });
-adEmployeeRoutes.route('/Resultmanager/:id').get(function (req, res) {
-  let id = req.params.id;
-  AdEmployee.find({
-    'request':id
-  }, function (err, adEmployee){
-    if (err) throw err;
-    if(adEmployee){
+adEmployeeRoutes.route('/Resultmanager/:manager_id').get(function (req, res) {
+  let manager_id = req.params.manager_id;
+  AdEmployee.find({manager_id:manager_id}, function (err, adEmployee){
       res.json(adEmployee);
-    }  else {
-			res.send(JSON.stringify({
-				error : 'Error'
-			}))
-		}
 	
   });
 });

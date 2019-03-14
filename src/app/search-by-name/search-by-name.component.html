@@ -35,32 +35,18 @@
       </div>
   </nav>
   </div>
-<div class="bordering-side text-justify">
-  <table class="table table-hover">
-    <thead>
-    <tr>
-        <th>Employee Name</th>
-        <th>Employee ID</th>
-        <th>Manager ID</th>
-        <th>Employee DOB</th>
-        <th>Employee Experience</th>
-        <th>Employee Skillset</th>
-        <th colspan="2">Actions</th>
+<table class="table table-hover">
+<thead>
+<tr>
+    <th>Employee Name</th>
+
+</tr>
+</thead>
+
+<tbody>
+    <tr *ngFor="let ademployee of ademployees">
+        <td>{{ ademployee.employee_name }}</td>
+
     </tr>
-    </thead>
-  
-    <tbody>
-        <tr *ngFor="let ademployee of ademployees">
-            <td>{{ ademployee.employee_name }}</td>
-            <td>{{ ademployee.employee_id }}</td>
-            <td>{{ ademployee.manager_id }}</td>
-            <td>{{ ademployee.employee_dob }}</td>
-            <td>{{ ademployee.employee_experience }}</td>
-            <td>{{ ademployee.employee_skillset }}</td>
-            <td><a [routerLink]="['/edit', ademployee._id]" class="btn btn-primary">Edit</a></td>
-          <td><button (click)="deleteAdEmployee(ademployee._id)"  class="btn btn-danger">Delete</button></td>
-            
-        </tr>
-    </tbody> 
-  </table>
-</div>
+</tbody>
+</table>

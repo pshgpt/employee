@@ -37,11 +37,11 @@ editAdEmployee(id) {
             .get(`${this.uri}/edit/${id}`);
 }
 
-searchMEmployee(id) {
+searchMEmployee(manager_id) {
   console.log("ho")
   return this
             .http
-            .get(`${this.uri}/Resultmanager/${id}`);
+            .get(`${this.uri}/Resultmanager/${manager_id}`);
 }
 
 updateAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset, id) {
