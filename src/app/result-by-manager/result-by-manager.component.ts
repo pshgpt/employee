@@ -12,7 +12,11 @@ export class ResultByManagerComponent implements OnInit {
   ademployee: any = {};
   ademployees: AdEmployee[];
 
+  navbarOpen = false;
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
   constructor(private route: ActivatedRoute,
     private router: Router,
     private ademployeeservice: AdemployeeService) { }

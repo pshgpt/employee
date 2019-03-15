@@ -1,0 +1,34 @@
+
+<div>
+    <div class="card">
+        <div class="card-body">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Employee ID</th>
+      <th>Manager ID</th>
+      <th>Employee DOB</th>
+      <th>Employee Experience</th>
+      <th>Employee Skillset</th>
+    
+    </tr>
+    </thead>
+  
+    <tbody>
+        <tr>
+            <td>{{ data.employee_name }}</td>
+            <td>{{ data.employee_id }}</td>
+            <td>{{ data.manager_id }}</td>
+            <td>{{ data.employee_dob | date: 'dd/MM/yyyy'}}</td>
+            <td>{{ data.employee_experience }}</td>
+            <td>{{ data.employee_skillset }}</td>
+        </tr>
+    </tbody>
+  </table>
+  <div align="center">
+  <button mat-button mat-dialog-close class="btn btn-success">Ok</button>
+</div>
+</div>
+</div>
+</div>

@@ -13,6 +13,7 @@ export class EditComponent implements OnInit {
 
   ademployee: any = {};
   angForm: FormGroup;
+  navbarOpen = false;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -20,6 +21,18 @@ export class EditComponent implements OnInit {
     private fb: FormBuilder) {
       this.createForm();
     }
+
+    ngOnInit() {
+      this.route.params.subscribe(params => {
+        this.ademployeeservice.editAdEmployee(params['id']).subscribe(res => {
+          this.ademployee = res;
+      });
+    });
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
     createForm() {
       this.angForm = this.fb.group({
              employee_name: ['', Validators.required ],
@@ -37,12 +50,4 @@ export class EditComponent implements OnInit {
           this.router.navigate(['index']);
       });
     }
-
-    ngOnInit() {
-      this.route.params.subscribe(params => {
-        this.ademployeeservice.editAdEmployee(params['id']).subscribe(res => {
-          this.ademployee = res;
-      });
-    });
-  }
 }

@@ -10,20 +10,24 @@ import { AdemployeeService } from '../../ademployee.service';
 export class IndexComponent implements OnInit {
 
   ademployees: AdEmployee[];
-
-  constructor(private ademployeeservice: AdemployeeService) { }
-
-  deleteAdEmployee(id) {
-    this.ademployeeservice.deleteAdEmployee(id).subscribe(res => {
-      console.log('Deleted');
-    });
-  }
+  navbarOpen = false;
 
   ngOnInit() {
     this.ademployeeservice
       .getAdEmployees()
       .subscribe((data: AdEmployee[]) => {
       this.ademployees = data;
+    });
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
+  constructor(private ademployeeservice: AdemployeeService) { }
+
+  deleteAdEmployee(id) {
+    this.ademployeeservice.deleteAdEmployee(id).subscribe(res => {
+      console.log('Deleted');
     });
   }
 }

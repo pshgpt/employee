@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './components/create/create.component';
 import { IndexComponent } from './components/index/index.component';
 import { EditComponent } from './components/edit/edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AdemployeeService } from './ademployee.service';
 import { LoginComponent } from './login/login.component';
 import { SearchByManagerComponent } from './search-by-manager/search-by-manager.component';
 import { ResultByManagerComponent } from './result-by-manager/result-by-manager.component';
 import { SearchByNameComponent } from './search-by-name/search-by-name.component';
+import { ResultByNameComponent } from './result-by-name/result-by-name.component';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
 const routes: Routes = [
   {
@@ -44,7 +47,12 @@ const routes: Routes = [
   {
     path: 'name',
     component: SearchByNameComponent
+  },
+  {
+    path: 'Resultname',
+    component: ResultByNameComponent
   }
+
 
 ];
 
@@ -58,15 +66,23 @@ const routes: Routes = [
     SearchByManagerComponent,
     ResultByManagerComponent,
     SearchByNameComponent,
+    ResultByNameComponent
+  ],
+  entryComponents: [
+    ResultByNameComponent
+
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     SlimLoadingBarModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
-  providers: [ AdemployeeService ],
+  providers: [ AdemployeeService,
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true, direction: 'ltr'}} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,9 +10,17 @@ import { AdemployeeService } from '../../ademployee.service';
 export class CreateComponent implements OnInit {
 
   angForm: FormGroup;
+  navbarOpen = false;
 
   constructor(private ademployeeservice: AdemployeeService, private fb: FormBuilder) { 
     this.createForm();
+  }
+
+  ngOnInit() {
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
   }
 
   createForm() {
@@ -29,7 +37,5 @@ export class CreateComponent implements OnInit {
   addAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset) {
     this.ademployeeservice.addAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset);
 }
-  ngOnInit() {
-  }
 
 }

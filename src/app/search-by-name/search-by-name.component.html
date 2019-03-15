@@ -35,6 +35,9 @@
       </div>
   </nav>
   </div>
+  <div class="container">
+      <div class="card">
+          <div class="card-body">  
 <table class="table table-hover">
 <thead>
 <tr>
@@ -45,8 +48,12 @@
 
 <tbody>
     <tr *ngFor="let ademployee of ademployees">
-        <td>{{ ademployee.employee_name }}</td>
+        <td><a (click)="openDialog(ademployee)">{{ ademployee.employee_name }}</a></td>
+        
 
     </tr>
 </tbody>
 </table>
+</div>
+</div>
+</div>

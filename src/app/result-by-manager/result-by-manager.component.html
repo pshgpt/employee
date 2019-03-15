@@ -35,6 +35,9 @@
       </div>
   </nav>
   </div>
+  <div class="container"> 
+      <div class="card">
+          <div class="card-body"> 
 <div class="bordering-side text-justify">
   <table class="table table-hover">
     <thead>
@@ -54,7 +57,7 @@
             <td>{{ ademployee.employee_name }}</td>
             <td>{{ ademployee.employee_id }}</td>
             <td>{{ ademployee.manager_id }}</td>
-            <td>{{ ademployee.employee_dob }}</td>
+            <td>{{ ademployee.employee_dob | date: 'dd/MM/yyyy'}}</td>
             <td>{{ ademployee.employee_experience }}</td>
             <td>{{ ademployee.employee_skillset }}</td>
             <td><a [routerLink]="['/edit', ademployee._id]" class="btn btn-primary">Edit</a></td>
@@ -63,4 +66,7 @@
         </tr>
     </tbody> 
   </table>
+</div>
+</div>
+</div>
 </div>

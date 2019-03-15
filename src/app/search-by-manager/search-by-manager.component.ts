@@ -9,16 +9,20 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 export class SearchByManagerComponent implements OnInit {
 
   managerSearchForm:FormGroup;
-  display:boolean=false;   
+  display:boolean=false; 
+  navbarOpen = false;  
   constructor(private fb:FormBuilder) { }
-
 
   ngOnInit() {
     this.managerSearchForm = this.fb.group({
       manager_id:["",[Validators.required]]
     });
   }
-search(){
-this.display=true;
-}
+  search(){
+    this.display=true;
+  }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 }
