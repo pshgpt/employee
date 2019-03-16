@@ -31,6 +31,7 @@ export class SearchByNameComponent implements OnInit {
       width: '100',
       data: ademployee,
       
+      
     });
   }
   toggleNavbar() {

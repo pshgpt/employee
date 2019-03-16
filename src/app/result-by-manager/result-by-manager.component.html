@@ -1,6 +1,7 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/index">
           Employee Management System
       </a>
     
@@ -17,9 +18,7 @@
             <a class="nav-link"  routerLink="/create">Create Details</a>
           </li>
     
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/index">All Details</a>
-          </li>
+          
           <li class="nav-item">
               <a class="nav-link" routerLink="/manager">Search By Manager Id</a>
             </li>
@@ -28,7 +27,7 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-right">
-          <li><a routerLink="/login" class="">Logout</a>
+          <li><a routerLink="/login" >Logout</a>
           </li>
          
       </ul>
@@ -48,7 +47,7 @@
         <th>Employee DOB</th>
         <th>Employee Experience</th>
         <th>Employee Skillset</th>
-        <th colspan="2">Actions</th>
+        
     </tr>
     </thead>
   
@@ -60,8 +59,8 @@
             <td>{{ ademployee.employee_dob | date: 'dd/MM/yyyy'}}</td>
             <td>{{ ademployee.employee_experience }}</td>
             <td>{{ ademployee.employee_skillset }}</td>
-            <td><a [routerLink]="['/edit', ademployee._id]" class="btn btn-primary">Edit</a></td>
-          <td><button (click)="deleteAdEmployee(ademployee._id)"  class="btn btn-danger">Delete</button></td>
+            <td><a [routerLink]="['/edit', ademployee._id]" class="btn"><i class="glyphicon glyphicon-edit"></i></a></td>
+          <td><button (click)="deleteAdEmployee(ademployee._id)" class="btn"><i class="glyphicon glyphicon-remove"></i></button></td>
             
         </tr>
     </tbody> 
