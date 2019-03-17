@@ -1,13 +1,12 @@
-// ademployee.route.js
+
 
 const express = require('express');
 const app = express();
 const adEmployeeRoutes = express.Router();
 
-// Require AdEmployee model in our routes module
 let AdEmployee = require('../models/AdEmployee');
 
-// Defined store route
+
 adEmployeeRoutes.route('/add').post(function (req, res) {
   let adEmployee = new AdEmployee(req.body);
   adEmployee.save()
@@ -19,7 +18,7 @@ adEmployeeRoutes.route('/add').post(function (req, res) {
     });
 });
 
-// Defined get data(index or listing) route
+
 adEmployeeRoutes.route('/').get(function (req, res) {
     AdEmployee.find(function (err, adEmployees){
     if(err){
@@ -31,14 +30,14 @@ adEmployeeRoutes.route('/').get(function (req, res) {
   });
 });
 
-// Defined edit route
+
 adEmployeeRoutes.route('/edit/:id').get(function (req, res) {
   let id = req.params.id;
   AdEmployee.findById(id, function (err, adEmployee){
       res.json(adEmployee);
   });
 });
-// Defined searchBymanager route
+
 adEmployeeRoutes.route('/Resultmanager/:manager_id').get(function (req, res) {
   let manager_id = req.params.manager_id;
   AdEmployee.find({manager_id:manager_id}, function (err, adEmployee){
@@ -47,7 +46,7 @@ adEmployeeRoutes.route('/Resultmanager/:manager_id').get(function (req, res) {
   });
 });
 
-//  Defined update route
+
 adEmployeeRoutes.route('/update/:id').post(function (req, res) {
     AdEmployee.findById(req.params.id, function(err, adEmployee) {
     if (!adEmployee)
@@ -70,7 +69,6 @@ adEmployeeRoutes.route('/update/:id').post(function (req, res) {
   });
 });
 
-// Defined delete | remove | destroy route
 adEmployeeRoutes.route('/delete/:id').get(function (req, res) {
     AdEmployee.findByIdAndRemove({_id: req.params.id}, function(err, adEmployee){
         if(err) res.json(err);
