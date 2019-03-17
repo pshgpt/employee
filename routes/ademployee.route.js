@@ -1,10 +1,10 @@
-// adunit.route.js
+// ademployee.route.js
 
 const express = require('express');
 const app = express();
 const adEmployeeRoutes = express.Router();
 
-// Require AdUnit model in our routes module
+// Require AdEmployee model in our routes module
 let AdEmployee = require('../models/AdEmployee');
 
 // Defined store route
@@ -38,6 +38,7 @@ adEmployeeRoutes.route('/edit/:id').get(function (req, res) {
       res.json(adEmployee);
   });
 });
+// Defined searchBymanager route
 adEmployeeRoutes.route('/Resultmanager/:manager_id').get(function (req, res) {
   let manager_id = req.params.manager_id;
   AdEmployee.find({manager_id:manager_id}, function (err, adEmployee){
