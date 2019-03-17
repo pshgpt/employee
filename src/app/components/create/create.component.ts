@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { AdemployeeService } from '../../ademployee.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-create',
@@ -12,7 +14,7 @@ export class CreateComponent implements OnInit {
   angForm: FormGroup;
   navbarOpen = false;
 
-  constructor(private ademployeeservice: AdemployeeService, private fb: FormBuilder) { 
+  constructor(private ademployeeservice: AdemployeeService, private fb: FormBuilder, private router: Router,) { 
     this.createForm();
   }
 
@@ -36,6 +38,10 @@ export class CreateComponent implements OnInit {
 
   addAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset) {
     this.ademployeeservice.addAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset);
+    this.router.navigateByUrl('/index');
+    window.location.reload();
+
+
 }
 
 }

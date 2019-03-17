@@ -47,7 +47,9 @@ export class EditComponent implements OnInit {
     updateAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset) {
       this.route.params.subscribe(params => {
           this.ademployeeservice.updateAdEmployee(employee_name, employee_id, manager_id, employee_dob, employee_experience, employee_skillset, params['id']);
-          this.router.navigate(['index']);
+        
+          this.router.navigateByUrl('/index');
+          window.location.reload();
       });
     }
 }

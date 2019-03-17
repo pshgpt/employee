@@ -58,8 +58,8 @@
           <td>{{ ademployee.employee_dob | date: 'dd/MM/yyyy'}}</td>
           <td>{{ ademployee.employee_experience }}</td>
           <td>{{ ademployee.employee_skillset }}</td>
-          <td><a [routerLink]="['/edit', ademployee._id]" class="btn"><i class="glyphicon glyphicon-edit"></i></a></td>
-          <td><button (click)="deleteAdEmployee(ademployee._id)" class="btn"><i class="glyphicon glyphicon-remove"></i></button></td>
+          <td><a [routerLink]="['/edit', ademployee._id]" class="btn"><i class="glyphicon glyphicon-edit">Edit</i></a></td>
+          <td><button (click)="deleteAdEmployee(ademployee._id)" class="btn"><i class="glyphicon glyphicon-remove">Delete</i></button></td>
           
       </tr>
   </tbody>

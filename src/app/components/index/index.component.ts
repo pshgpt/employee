@@ -17,6 +17,7 @@ export class IndexComponent implements OnInit {
       .getAdEmployees()
       .subscribe((data: AdEmployee[]) => {
       this.ademployees = data;
+      
     });
   }
 
@@ -28,6 +29,8 @@ export class IndexComponent implements OnInit {
   deleteAdEmployee(id) {
     this.ademployeeservice.deleteAdEmployee(id).subscribe(res => {
       console.log('Deleted');
+      window.location.reload();
+
     });
   }
 }
